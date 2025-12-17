@@ -8,67 +8,66 @@
 </head>
 <body>
 
-<div id="game-table">
-    <div id="center-info">
-        <div class="info-row">
-            <span class="round-indicator">東1局</span>
-            <span class="wall-indicator">残: <span id="wall-count">70</span></span>
+    <div id="title-screen">
+        <div class="title-content">
+            <h1>JS Mahjong</h1>
+            <p>ブラウザで遊ぶ本格麻雀</p>
+            <button id="btn-start" class="title-btn">対局開始</button>
         </div>
-        <div class="dora-area">
-            <span>ドラ:</span>
-            <div id="dora-indicator"></div>
+    </div>
+
+    <div id="game-container">
+        <div id="p2" class="player-area top">
+            <div class="hand-wrapper"></div>
+            <div class="river"></div>
+            <div class="riichi-stick"></div>
         </div>
-        <div id="notification-area">対局開始</div>
-    </div>
 
-    <div id="p2" class="player-area top">
-        <div class="hand-wrapper"></div>
-        <div class="river"></div>
-        <div class="score-box">CPU2: 25000</div>
-    </div>
-
-    <div id="p3" class="player-area left">
-        <div class="hand-wrapper"></div>
-        <div class="river"></div>
-        <div class="score-box">CPU3: 25000</div>
-    </div>
-
-    <div id="p1" class="player-area right">
-        <div class="hand-wrapper"></div>
-        <div class="river"></div>
-        <div class="score-box">CPU1: 25000</div>
-    </div>
-
-    <div id="p0" class="player-area bottom">
-        <div class="riichi-stick" style="display:none;"></div>
-        <div class="river"></div>
-        <div class="hand-container">
-            <div class="hand-wrapper" id="my-hand"></div>
-            <div class="meld-wrapper" id="my-melds"></div>
+        <div id="p1" class="player-area left">
+            <div class="hand-wrapper"></div>
+            <div class="river"></div>
+            <div class="riichi-stick"></div>
         </div>
-        <div class="score-box">YOU: 25000</div>
+
+        <div id="p3" class="player-area right">
+            <div class="hand-wrapper"></div>
+            <div class="river"></div>
+            <div class="riichi-stick"></div>
+        </div>
+
+        <div class="center-info">
+            <div id="notification-area">待機中...</div>
+            <div class="info-row">
+                残り: <span id="wall-count">70</span> | ドラ: <div id="dora-indicator" class="tile"></div>
+            </div>
+        </div>
+
+        <div id="p0" class="player-area bottom">
+            <div class="riichi-stick"></div>
+            <div class="river"></div>
+            <div id="actions">
+                <button id="btn-chi" class="act-btn" hidden>チー</button>
+                <button id="btn-pon" class="act-btn" hidden>ポン</button>
+                <button id="btn-kan" class="act-btn" hidden>カン</button>
+                <button id="btn-riichi" class="act-btn" hidden>リーチ</button>
+                <button id="btn-ron" class="act-btn" hidden>ロン</button>
+                <button id="btn-tsumo" class="act-btn" hidden>ツモ</button>
+                <button id="btn-pass" class="act-btn" hidden>パス</button>
+            </div>
+            <div id="my-hand" class="hand-wrapper"></div>
+            <div id="my-melds" class="meld-area"></div>
+        </div>
     </div>
 
-    <div id="action-buttons">
-        <button id="btn-chi" class="act-btn" hidden>チー</button>
-        <button id="btn-pon" class="act-btn" hidden>ポン</button>
-        <button id="btn-kan" class="act-btn" hidden>カン</button>
-        <button id="btn-riichi" class="act-btn" hidden>リーチ</button>
-        <button id="btn-ron" class="act-btn win" hidden>ロン</button>
-        <button id="btn-tsumo" class="act-btn win" hidden>ツモ</button>
-        <button id="btn-pass" class="act-btn secondary" hidden>パス</button>
+    <div id="result-modal" class="hidden">
+        <div class="modal-content">
+            <h2 id="res-title">RON</h2>
+            <div id="res-yaku-list"></div>
+            <div id="res-score"></div>
+            <button id="btn-next-game" onclick="location.reload()">タイトルへ戻る</button>
+        </div>
     </div>
-</div>
 
-<div id="result-modal" class="modal hidden">
-    <div class="modal-content">
-        <h2 id="res-title">WIN</h2>
-        <div id="res-yaku-list"></div>
-        <div id="res-score"></div>
-        <button onclick="location.reload()">次の対局へ</button>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
